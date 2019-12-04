@@ -1,43 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.ta.travelagency.model;
 
+import java.util.HashMap;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 
-/**
- *
- * @author saradam
- */
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "packageCategories" 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "package_categories"
 })
-@XmlRootElement(name = "ta_package_categories_rs")
 public class TaPackageCategoriesRS {
-    @XmlElement(name = "package_categories", required = true)
-    private List<PackageCategories> packageCategories;
 
-    /**
-     * @return the packageCategories
-     */
-    public List<PackageCategories> getPackageCategories() {
+    @JsonProperty("package_categories")
+    private List<PackageCategory> packageCategories = null;
+
+    @JsonProperty("package_categories")
+    public List<PackageCategory> getPackageCategories() {
+        if(packageCategories == null){
+            packageCategories = new ArrayList<>();
+        }
         return packageCategories;
     }
 
-    /**
-     * @param packageCategories the packageCategories to set
-     */
-    public void setPackageCategories(List<PackageCategories> packageCategories) {
+    @JsonProperty("package_categories")
+    public void setPackageCategories(List<PackageCategory> packageCategories) {
         this.packageCategories = packageCategories;
     }
-    
+
 }

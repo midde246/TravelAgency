@@ -5,7 +5,7 @@
  */
 package com.ta.travelagency.agency.packagemanagement.service;
 
-import com.ta.travelagency.model.PackageCategories;
+import com.ta.travelagency.model.PackageCategory;
 import java.util.List;
 
 /**
@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface PackageManagementService {
 
-    public List<PackageCategories> getAllPackageCategoryList();
+    public List<PackageCategory> getAllPackageCategoryList();
     
 }

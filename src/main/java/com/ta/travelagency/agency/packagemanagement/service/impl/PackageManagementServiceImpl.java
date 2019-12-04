@@ -6,7 +6,7 @@
 package com.ta.travelagency.agency.packagemanagement.service.impl;
 
 import com.ta.travelagency.agency.packagemanagement.service.PackageManagementService;
-import com.ta.travelagency.model.PackageCategories;
+import com.ta.travelagency.model.PackageCategory;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
@@ -19,11 +19,11 @@ import org.springframework.stereotype.Component;
 public class PackageManagementServiceImpl implements PackageManagementService{
 
     @Override
-    public List<PackageCategories> getAllPackageCategoryList() {
-        List<PackageCategories> packageCategoryList = new ArrayList<>();
-        PackageCategories pc1 = new PackageCategories();
-        PackageCategories pc2 = new PackageCategories();
-        PackageCategories pc3 = new PackageCategories();
+    public List<PackageCategory> getAllPackageCategoryList() {
+        List<PackageCategory> packageCategoryList = new ArrayList<>();
+        PackageCategory pc1 = new PackageCategory();
+        PackageCategory pc2 = new PackageCategory();
+        PackageCategory pc3 = new PackageCategory();
         pc1.setId("101");
         pc1.setName("Family Trip");
         packageCategoryList.add(pc1);
