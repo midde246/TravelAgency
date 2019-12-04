@@ -7,6 +7,8 @@ package com.ta.travelagency.common.controller;
 
 import com.ta.travelagency.model.TaLoginValidationRQ;
 import com.ta.travelagency.model.TaLoginValidationRS;
+import com.ta.travelagency.model.TaLogoutRQ;
+import com.ta.travelagency.model.TaLogoutRS;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,5 +42,15 @@ public class CommonController {
     @GetMapping("/")
     public String test(){
         return "Hello Midde, How are you ?";
+    }
+    
+    @RequestMapping(value="/logout", method=RequestMethod.POST)
+    @ResponseBody
+    public TaLogoutRS logout(@RequestBody TaLogoutRQ req){
+        TaLogoutRS taLogoutRS = new TaLogoutRS();
+        
+        
+        
+        return taLogoutRS;
     }
 }

@@ -5,10 +5,15 @@
  */
 package com.ta.travelagency.agency.packagemanagement.service;
 
+import com.ta.travelagency.model.PackageCategories;
+import java.util.List;
+
 /**
  *
  * @author saradam
  */
 public interface PackageManagementService {
+
+    public List<PackageCategories> getAllPackageCategoryList();
     
 }
