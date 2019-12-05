@@ -5,10 +5,13 @@
  */
 package com.ta.travelagency.agency.packagemanagement.service.impl;
 
+import com.ta.travelagency.agency.packagemanagement.dao.PackageManagementDao;
 import com.ta.travelagency.agency.packagemanagement.service.PackageManagementService;
+import com.ta.travelagency.model.Categories;
 import com.ta.travelagency.model.PackageCategory;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,22 +20,23 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PackageManagementServiceImpl implements PackageManagementService{
-
+    
+    @Autowired
+    PackageManagementDao packageManagementDao;
+    
     @Override
     public List<PackageCategory> getAllPackageCategoryList() {
         List<PackageCategory> packageCategoryList = new ArrayList<>();
-        PackageCategory pc1 = new PackageCategory();
-        PackageCategory pc2 = new PackageCategory();
-        PackageCategory pc3 = new PackageCategory();
-        pc1.setId("101");
-        pc1.setName("Family Trip");
-        packageCategoryList.add(pc1);
-        pc2.setId("2");
-        pc2.setName("Wild Life Trip");
-        packageCategoryList.add(pc2);
-        pc3.setId("3");
-        pc3.setName("Fitness Trip");
-        packageCategoryList.add(pc3);
+        
+        
+        List<Categories> categoryList = packageManagementDao.findAll();
+        for(Categories category : categoryList){
+            PackageCategory packageCategory = new PackageCategory();
+            packageCategory.setId(category.getId());
+            packageCategory.setName(category.getName());
+            packageCategoryList.add(packageCategory);
+        }
+        
         return packageCategoryList;
     }
     

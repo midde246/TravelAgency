@@ -11,6 +11,7 @@ import com.ta.travelagency.model.PackageCategory;
 import com.ta.travelagency.model.TaPackageCategoriesRS;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,8 +28,8 @@ public class PackageManagementController {
     @Autowired
     PackageManagementService packageManagementService;
             
-    @RequestMapping(value = "/packageCategories", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody PackageCategoriesRS getPackageManagementCategories(){
+    @RequestMapping(value = "/packageCategoriesInfo", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody PackageCategoriesRS getPackageManagementCategoriesInfo(){
         PackageCategoriesRS packageCategoriesRS = new PackageCategoriesRS();
         List<PackageCategory> packagecategoriesList = packageManagementService.getAllPackageCategoryList(); 
         TaPackageCategoriesRS taPackageCategoriesRs = new TaPackageCategoriesRS();
@@ -36,5 +37,11 @@ public class PackageManagementController {
         packageCategoriesRS.setTaPackageCategoriesRs(taPackageCategoriesRs);
         return packageCategoriesRS;
     }
+    
+//    @RequestMapping(value = "/packageCategoriesUpdate", method = RequestMethod.POST, produces = "application/json")
+//    public @ResponseBody PackageCategoriesUpdateRS getPackageCategoriesUpdate(@RequestBody TaPackagecategoriesUpdateRQ){
+//      
+//        return packageCategoriesUpdateRS;
+//    }
     
 }
